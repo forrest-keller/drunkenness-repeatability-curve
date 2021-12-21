@@ -5,6 +5,6 @@ declare module "little-state-machine" {
   interface GlobalState {
     query: string | null;
     track: Track | null;
-    drinkCount: number | null;
+    drinkCount: number;
   }
 }

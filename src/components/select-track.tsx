@@ -1,4 +1,4 @@
-import { Alert, Spinner, Stack } from "@chakra-ui/react";
+import { Alert, Center, Spinner, Stack } from "@chakra-ui/react";
 import { useStateMachine } from "little-state-machine";
 import { FunctionComponent } from "react";
 import { useTracks } from "../hooks/use-tracks";
@@ -15,7 +15,11 @@ export const SelectTrack: FunctionComponent = () => {
   };
 
   if (isLoading) {
-    return <Spinner />;
+    return (
+      <Center>
+        <Spinner />
+      </Center>
+    );
   }
 
   if (error) {
@@ -23,7 +27,7 @@ export const SelectTrack: FunctionComponent = () => {
   }
 
   if (tracks == undefined || tracks.length == 0) {
-    return <Alert>No tracks found.</Alert>;
+    return <Alert status="warning">No tracks found.</Alert>;
   }
 
   return (

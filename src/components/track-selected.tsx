@@ -1,15 +1,17 @@
 import { CloseIcon } from "@chakra-ui/icons";
 import {
   Box,
+  Center,
   IconButton,
-  LinkBox,
-  LinkOverlay,
+  NumberInput,
+  NumberInputField,
   Spacer,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { FunctionComponent, MouseEventHandler } from "react";
+import { DrinkCount } from "./drink-count";
 
 export interface TrackSelectedProps {
   id: string;
@@ -40,23 +42,26 @@ export const TrackSelected: FunctionComponent<TrackSelectedProps> = ({
           height={100}
           objectFit="cover"
         />
-        <Box width="100%">
-          <Stack isInline>
-            <Text fontSize="2xl" noOfLines={1} as="b">
+        <Stack width="100%" as={Center} isInline>
+          <Stack>
+            <Text as="b" fontSize="2xl" noOfLines={1}>
               {name}
             </Text>
-            <Spacer />
+            <Text as="b" noOfLines={1} fontSize="sm" color="blackAlpha.700">
+              {artists.join(", ")}
+            </Text>
+          </Stack>
+          <Spacer />
+          <DrinkCount />
+          <Box padding="1em">
             <IconButton
               aria-label="Close"
               variant="ghost"
               onClick={handleClick}
               icon={<CloseIcon />}
             />
-          </Stack>
-          <Text noOfLines={1} fontSize="sm" color="blackAlpha.700">
-            {artists.join(", ")}
-          </Text>
-        </Box>
+          </Box>
+        </Stack>
       </Stack>
     </Box>
   );

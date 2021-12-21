@@ -5,7 +5,7 @@ import { Track } from "../pages/api/search";
 export const defaultState: GlobalState = {
   query: null,
   track: null,
-  drinkCount: null,
+  drinkCount: 0,
 };
 
 export const options: StateMachineOptions = {
@@ -63,9 +63,4 @@ export const updateDrinkCount: UpdateField<UpdateDrinkCountPayload> = (
 ) => ({
   ...state,
   drinkCount: payload.drinkCount,
-});
-
-export const deleteDrinkCount: DeleteField = (state) => ({
-  ...state,
-  drinkCount: null,
 });

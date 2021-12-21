@@ -1,4 +1,4 @@
-import { Container, Stack } from "@chakra-ui/react";
+import { Center, Container, Heading, Stack } from "@chakra-ui/react";
 import { useStateMachine } from "little-state-machine";
 import type { NextPage } from "next";
 import { GetStarted } from "../components/get-started";
@@ -16,11 +16,14 @@ const Home: NextPage = () => {
 
   return (
     <Container>
+      <Center margin="2em">
+        <Heading>DR Curve</Heading>
+      </Center>
       {state.query == null && <GetStarted />}
       {state.query != null && !state.track && (
         <Stack>
           <QueryField />
-          <SelectTrack />
+          {state.query.trim().length && <SelectTrack />}
         </Stack>
       )}
       {state.track && (

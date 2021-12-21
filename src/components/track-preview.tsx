@@ -1,11 +1,5 @@
-import {
-  Box,
-  Image,
-  LinkBox,
-  LinkOverlay,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, LinkBox, LinkOverlay, Stack, Text } from "@chakra-ui/react";
+import Image from "next/image";
 import { FunctionComponent, MouseEventHandler } from "react";
 
 export interface TrackPreviewProps {
@@ -35,12 +29,13 @@ export const TrackPreview: FunctionComponent<TrackPreviewProps> = ({
       overflow="hidden"
     >
       <Stack isInline>
-        <LinkOverlay as="button">
+        <LinkOverlay display="inherit" as="button">
           <Image
             src={imageUrl}
             alt={name}
             width={50}
             height={50}
+            layout="fixed"
             objectFit="cover"
           />
         </LinkOverlay>

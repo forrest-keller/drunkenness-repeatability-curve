@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button, Center } from "@chakra-ui/react";
 import { useStateMachine } from "little-state-machine";
 import { FunctionComponent, MouseEventHandler } from "react";
 import { updateQuery } from "../utilities/store";
@@ -12,5 +12,11 @@ export const GetStarted: FunctionComponent = () => {
     actions.updateQuery({ query: "" });
   };
 
-  return <Button onClick={handleGetStartedClick}>Get Started</Button>;
+  return (
+    <Center>
+      <Button colorScheme="blue" onClick={handleGetStartedClick}>
+        Get Started
+      </Button>
+    </Center>
+  );
 };
