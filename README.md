@@ -6,10 +6,18 @@ Dark times are upon us. As people return to "being on AUX", some have forgotten 
 
 ## Getting Started
 
-First, run the development server:
+First, install required dependencies:
+
+```bash
+npm install
+```
+
+Then run the development server:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the project.
+For a full list of available scripts, see `package.json`
+
+Finally, open [http://localhost:3000](http://localhost:3000) to view the output of the development server.
