@@ -46,7 +46,6 @@ export const TrackSelected: FunctionComponent<TrackSelectedProps> = ({
         </Center>
         <Stack
           as={Center}
-          width="100%"
           padding="1em"
           paddingY={{ lg: "0" }}
           direction={{ base: "column", lg: "row" }}
