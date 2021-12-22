@@ -16,39 +16,39 @@ export const DRCurve: FunctionComponent = () => {
               {
                 x: 0,
                 y:
-                  10 +
-                  50 * audioFeatures.danceability +
-                  20 * audioFeatures.energy +
-                  20 * audioFeatures.liveness,
+                  1 +
+                  2 * audioFeatures.danceability +
+                  2 * audioFeatures.energy +
+                  2 * audioFeatures.liveness,
               },
               {
                 x: 2,
                 y:
-                  20 +
-                  20 * (-0.5 + (1 - audioFeatures.acousticness)) +
-                  10 * audioFeatures.danceability,
+                  2 +
+                  2 * (-0.5 + (1 - audioFeatures.acousticness)) +
+                  1 * audioFeatures.danceability,
               },
               {
                 x: 3 + Math.round(audioFeatures.energy),
                 y:
-                  25 +
-                  25 * (-0.5 + audioFeatures.energy) +
-                  10 * audioFeatures.danceability,
+                  2 +
+                  2 * (-0.5 + audioFeatures.energy) +
+                  1 * audioFeatures.danceability,
               },
               {
                 x: 6 - Math.round(audioFeatures.danceability),
                 y:
-                  40 +
-                  20 * (-0.5 + audioFeatures.danceability) +
-                  10 * audioFeatures.danceability,
+                  4 +
+                  2 * (-0.5 + audioFeatures.danceability) +
+                  1 * audioFeatures.danceability,
               },
               {
                 x: 8,
-                y: 70 + 20 * (-0.5 + audioFeatures.liveness),
+                y: 7 + 2 * (-0.5 + audioFeatures.liveness),
               },
               {
                 x: 10,
-                y: 90 + 10 * (-0.5 + (1 - audioFeatures.speechiness)),
+                y: 9 + 1 * (-0.5 + (1 - audioFeatures.speechiness)),
               },
             ],
           },
@@ -75,7 +75,7 @@ export const DRCurve: FunctionComponent = () => {
         yScale={{
           type: "linear",
           min: 0,
-          max: 100,
+          max: 10,
         }}
         xScale={{
           type: "linear",
@@ -83,12 +83,12 @@ export const DRCurve: FunctionComponent = () => {
           max: 10,
         }}
         axisBottom={{
-          legend: "Drink Count (#)",
+          legend: "Drink Count",
           legendPosition: "middle",
           legendOffset: 36,
         }}
         axisLeft={{
-          legend: "Song Repeatability (%)",
+          legend: "Times Repeatable",
           legendPosition: "middle",
           legendOffset: -36,
         }}
