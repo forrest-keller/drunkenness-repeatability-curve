@@ -38,7 +38,6 @@ export const QueryField: FunctionComponent = () => {
 
   return (
     <FormControl>
-      <FormLabel htmlFor="search">Search for a Track</FormLabel>
       <InputGroup>
         <InputLeftElement>
           <SearchIcon />

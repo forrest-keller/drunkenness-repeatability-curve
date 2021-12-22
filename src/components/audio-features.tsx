@@ -13,7 +13,6 @@ export const AudioFeatures: FunctionComponent = () => {
           <AudioFeature label="Acousticness" />
           <AudioFeature label="Danceability" />
           <AudioFeature label="Energy" />
-          <AudioFeature label="Instrumentalness" />
           <AudioFeature label="Liveness" />
           <AudioFeature label="Speechiness" />
         </Wrap>
@@ -35,10 +34,6 @@ export const AudioFeatures: FunctionComponent = () => {
         <AudioFeature value={audioFeatures.acousticness} label="Acousticness" />
         <AudioFeature value={audioFeatures.danceability} label="Danceability" />
         <AudioFeature value={audioFeatures.energy} label="Energy" />
-        <AudioFeature
-          value={audioFeatures.instrumentalness}
-          label="Instrumentalness"
-        />
         <AudioFeature value={audioFeatures.liveness} label="Liveness" />
         <AudioFeature value={audioFeatures.speechiness} label="Speechiness" />
       </Wrap>
