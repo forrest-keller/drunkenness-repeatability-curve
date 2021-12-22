@@ -8,9 +8,7 @@ export const useTracks = () => {
   const { data, error } = useSWR<Track[], AxiosError>(
     `/api/search?query=${state.query}`,
     async (url) => {
-      const res = await axios.get<Track[]>(url, {
-        params: { query: state.query },
-      });
+      const res = await axios.get<Track[]>(url);
 
       return res.data;
     }

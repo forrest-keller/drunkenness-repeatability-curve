@@ -32,7 +32,7 @@ export const QueryField: FunctionComponent = () => {
       actions.deleteQuery({});
     };
 
-  if (state.query == null) {
+  if (state.query == undefined) {
     return null;
   }
 

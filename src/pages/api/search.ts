@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { spotifyApi } from "../../utilities/spotify-api";
+import { authenticate, spotifyApi } from "../../utilities/spotify-api";
 
 export interface Track {
   id: string;
@@ -9,21 +9,14 @@ export interface Track {
 }
 
 const route = async (req: NextApiRequest, res: NextApiResponse<Track[]>) => {
-  // Parse Request
+  authenticate();
+
   const query = req.query.query as string;
 
-  // Authenticate Spotify API
-  const {
-    body: { access_token },
-  } = await spotifyApi.clientCredentialsGrant();
-  spotifyApi.setAccessToken(access_token);
-
-  // Make Spotify API Request
   const {
     body: { tracks: tracksPagingObject },
   } = await spotifyApi.searchTracks(query, { limit: 5 });
 
-  // Parse Request to Tracks
   const trackObjects = tracksPagingObject?.items || [];
   const tracks: Track[] = trackObjects.map((trackObject) => ({
     id: trackObject.id,

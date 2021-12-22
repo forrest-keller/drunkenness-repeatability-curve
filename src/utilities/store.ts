@@ -1,10 +1,11 @@
 import { createStore, GlobalState } from "little-state-machine";
 import { StateMachineOptions } from "little-state-machine/dist/types";
+import { AudioFeatures } from "../pages/api/audio-features";
 import { Track } from "../pages/api/search";
 
 export const defaultState: GlobalState = {
-  query: null,
-  track: null,
+  query: undefined,
+  track: undefined,
   drinkCount: 0,
 };
 
@@ -30,6 +31,9 @@ export interface UpdateTrackPayload {
 export interface UpdateDrinkCountPayload {
   drinkCount: number;
 }
+export interface UpdateAudioFeaturesPayload {
+  audioFeatures: AudioFeatures;
+}
 
 export const updateQuery: UpdateField<UpdateQueryPayload> = (
   state,
@@ -41,7 +45,7 @@ export const updateQuery: UpdateField<UpdateQueryPayload> = (
 
 export const deleteQuery: DeleteField = (state) => ({
   ...state,
-  query: null,
+  query: undefined,
 });
 
 export const updateTrack: UpdateField<UpdateTrackPayload> = (
@@ -54,7 +58,7 @@ export const updateTrack: UpdateField<UpdateTrackPayload> = (
 
 export const deleteTrack: DeleteField = (state) => ({
   ...state,
-  track: null,
+  track: undefined,
 });
 
 export const updateDrinkCount: UpdateField<UpdateDrinkCountPayload> = (

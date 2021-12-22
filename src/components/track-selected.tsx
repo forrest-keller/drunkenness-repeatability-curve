@@ -33,8 +33,8 @@ export const TrackSelected: FunctionComponent<TrackSelectedProps> = ({
   };
 
   return (
-    <Box borderWidth="1px" borderRadius="md" overflow="hidden">
-      <Stack isInline>
+    <Box width="100%" borderWidth="1px" borderRadius="md" overflow="hidden">
+      <Stack direction={{ base: "column", lg: "row" }}>
         <Image
           src={imageUrl}
           alt={name}
@@ -42,7 +42,11 @@ export const TrackSelected: FunctionComponent<TrackSelectedProps> = ({
           height={100}
           objectFit="cover"
         />
-        <Stack width="100%" as={Center} isInline>
+        <Stack
+          width="100%"
+          as={Center}
+          direction={{ base: "column", lg: "row" }}
+        >
           <Stack>
             <Text as="b" fontSize="2xl" noOfLines={1}>
               {name}
@@ -52,15 +56,17 @@ export const TrackSelected: FunctionComponent<TrackSelectedProps> = ({
             </Text>
           </Stack>
           <Spacer />
-          <DrinkCount />
-          <Box padding="1em">
-            <IconButton
-              aria-label="Close"
-              variant="ghost"
-              onClick={handleClick}
-              icon={<CloseIcon />}
-            />
-          </Box>
+          <Stack isInline>
+            <DrinkCount />
+            <Box padding="1em">
+              <IconButton
+                aria-label="Close"
+                variant="ghost"
+                onClick={handleClick}
+                icon={<CloseIcon />}
+              />
+            </Box>
+          </Stack>
         </Stack>
       </Stack>
     </Box>

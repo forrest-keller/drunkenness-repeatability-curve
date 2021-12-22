@@ -1,6 +1,8 @@
 import { Center, Container, Heading, Stack } from "@chakra-ui/react";
 import { useStateMachine } from "little-state-machine";
 import type { NextPage } from "next";
+import { AudioFeatures } from "../components/audio-features";
+import { DRCurve } from "../components/dr-curve";
 import { GetStarted } from "../components/get-started";
 import { QueryField } from "../components/query-field";
 import { SelectTrack } from "../components/select-track";
@@ -15,19 +17,23 @@ const Home: NextPage = () => {
   };
 
   return (
-    <Container>
+    <Container maxWidth="2xl">
       <Center margin="2em">
-        <Heading>DR Curve</Heading>
+        <Heading>D-R Curve</Heading>
       </Center>
-      {state.query == null && <GetStarted />}
-      {state.query != null && !state.track && (
+      {state.query == undefined ? (
+        <GetStarted />
+      ) : state.track == undefined ? (
         <Stack>
           <QueryField />
-          {state.query.trim().length && <SelectTrack />}
+          {state.query.trim().length ? <SelectTrack /> : null}
         </Stack>
-      )}
-      {state.track && (
-        <TrackSelected onClose={handleTrackClose} {...state.track} />
+      ) : (
+        <Stack gap="3em">
+          <TrackSelected onClose={handleTrackClose} {...state.track} />
+          <AudioFeatures />
+          <DRCurve />
+        </Stack>
       )}
     </Container>
   );
