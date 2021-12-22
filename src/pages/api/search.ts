@@ -9,7 +9,7 @@ export interface Track {
 }
 
 const route = async (req: NextApiRequest, res: NextApiResponse<Track[]>) => {
-  authenticate();
+  await authenticate();
 
   const query = req.query.query as string;
 

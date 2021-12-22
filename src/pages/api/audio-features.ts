@@ -14,7 +14,7 @@ const route = async (
   req: NextApiRequest,
   res: NextApiResponse<AudioFeatures>
 ) => {
-  authenticate();
+  await authenticate();
   const trackId = req.query.trackId as string;
 
   const {

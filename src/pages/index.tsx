@@ -19,7 +19,7 @@ const Home: NextPage = () => {
   return (
     <Container maxWidth="2xl">
       <Center margin="2em">
-        <Heading>D-R Curve</Heading>
+        <Heading>🍻 D-R Curve</Heading>
       </Center>
       {state.query == undefined ? (
         <GetStarted />
