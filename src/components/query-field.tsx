@@ -39,28 +39,26 @@ export const QueryField: FunctionComponent = () => {
   return (
     <FormControl>
       <FormLabel htmlFor="search">Search for a Track</FormLabel>
-      <Stack isInline>
-        <InputGroup>
-          <InputLeftElement>
-            <SearchIcon />
-          </InputLeftElement>
-          <Input
-            id="search"
-            placeholder="Mamma Mia"
-            value={state.query}
-            onChange={handleSearchFieldChange}
-          />
-          <InputRightElement width="4rem">
-            <Button
-              size="sm"
-              height="1.75rem"
-              onClick={handleSearchFieldClearClick}
-            >
-              Clear
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-      </Stack>
+      <InputGroup>
+        <InputLeftElement>
+          <SearchIcon />
+        </InputLeftElement>
+        <Input
+          id="search"
+          placeholder="Mamma Mia"
+          value={state.query}
+          onChange={handleSearchFieldChange}
+        />
+        <InputRightElement width="4rem">
+          <Button
+            size="sm"
+            height="1.75rem"
+            onClick={handleSearchFieldClearClick}
+          >
+            Clear
+          </Button>
+        </InputRightElement>
+      </InputGroup>
     </FormControl>
   );
 };
