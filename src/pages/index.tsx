@@ -42,7 +42,7 @@ const TrackSelected = dynamic(
     const module = await import("../components/track-selected");
     return module.TrackSelected;
   },
-  { loading: () => <Skeleton /> }
+  { loading: () => <Skeleton height={50} /> }
 );
 
 const Home: NextPage = () => {
@@ -65,7 +65,7 @@ const Home: NextPage = () => {
           {state.query.trim().length ? <SelectTrack /> : null}
         </Stack>
       ) : (
-        <Stack gap="3em">
+        <Stack gap="3em" hidden={state.query == undefined}>
           <TrackSelected onClose={handleTrackClose} {...state.track} />
           <AudioFeatures />
           <DRCurve />

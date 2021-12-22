@@ -15,19 +15,32 @@ export const DRCurve: FunctionComponent = () => {
             data: [
               {
                 x: 0,
-                y: 10 + 10 * (-0.5 + audioFeatures.acousticness),
+                y:
+                  10 +
+                  50 * audioFeatures.danceability +
+                  20 * audioFeatures.energy +
+                  20 * audioFeatures.liveness,
               },
               {
                 x: 2,
-                y: 20 + 20 * (-0.5 + audioFeatures.danceability),
+                y:
+                  20 +
+                  20 * (-0.5 + (1 - audioFeatures.acousticness)) +
+                  10 * audioFeatures.danceability,
               },
               {
-                x: 3,
-                y: 25 + 25 * (-0.5 + audioFeatures.energy),
+                x: 3 + Math.round(audioFeatures.energy),
+                y:
+                  25 +
+                  25 * (-0.5 + audioFeatures.energy) +
+                  10 * audioFeatures.danceability,
               },
               {
-                x: 6,
-                y: 40 + 20 * (-0.5 + audioFeatures.instrumentalness),
+                x: 6 - Math.round(audioFeatures.danceability),
+                y:
+                  40 +
+                  20 * (-0.5 + audioFeatures.danceability) +
+                  10 * audioFeatures.danceability,
               },
               {
                 x: 8,
@@ -35,7 +48,7 @@ export const DRCurve: FunctionComponent = () => {
               },
               {
                 x: 10,
-                y: 90 + 10 * (-0.5 + audioFeatures.speechiness),
+                y: 90 + 10 * (-0.5 + (1 - audioFeatures.speechiness)),
               },
             ],
           },
