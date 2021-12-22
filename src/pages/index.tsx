@@ -1,4 +1,11 @@
-import { Center, Container, Heading, Stack } from "@chakra-ui/react";
+import {
+  Center,
+  Container,
+  Heading,
+  Skeleton,
+  Spinner,
+  Stack,
+} from "@chakra-ui/react";
 import { useStateMachine } from "little-state-machine";
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
@@ -6,25 +13,37 @@ import { AudioFeatures } from "../components/audio-features";
 import { DRCurve } from "../components/dr-curve";
 import { deleteTrack } from "../utilities/store";
 
-const GetStarted = dynamic(async () => {
-  const module = await import("../components/get-started");
-  return module.GetStarted;
-});
+const GetStarted = dynamic(
+  async () => {
+    const module = await import("../components/get-started");
+    return module.GetStarted;
+  },
+  { loading: () => <Skeleton /> }
+);
 
-const QueryField = dynamic(async () => {
-  const module = await import("../components/query-field");
-  return module.QueryField;
-});
+const QueryField = dynamic(
+  async () => {
+    const module = await import("../components/query-field");
+    return module.QueryField;
+  },
+  { loading: () => <Skeleton /> }
+);
 
-const SelectTrack = dynamic(async () => {
-  const module = await import("../components/select-track");
-  return module.SelectTrack;
-});
+const SelectTrack = dynamic(
+  async () => {
+    const module = await import("../components/select-track");
+    return module.SelectTrack;
+  },
+  { loading: () => <Skeleton /> }
+);
 
-const TrackSelected = dynamic(async () => {
-  const module = await import("../components/track-selected");
-  return module.TrackSelected;
-});
+const TrackSelected = dynamic(
+  async () => {
+    const module = await import("../components/track-selected");
+    return module.TrackSelected;
+  },
+  { loading: () => <Skeleton /> }
+);
 
 const Home: NextPage = () => {
   const { state, actions } = useStateMachine({ deleteTrack });

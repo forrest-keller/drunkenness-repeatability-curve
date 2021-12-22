@@ -9,14 +9,14 @@ export const AudioFeatures: FunctionComponent = () => {
   if (isLoading) {
     return (
       <Center>
-        <Stack isInline>
+        <Wrap justify="center">
           <AudioFeature label="Acousticness" />
           <AudioFeature label="Danceability" />
           <AudioFeature label="Energy" />
           <AudioFeature label="Instrumentalness" />
           <AudioFeature label="Liveness" />
           <AudioFeature label="Speechiness" />
-        </Stack>
+        </Wrap>
       </Center>
     );
   }
