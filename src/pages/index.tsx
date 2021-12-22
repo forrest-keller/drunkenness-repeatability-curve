@@ -1,13 +1,30 @@
 import { Center, Container, Heading, Stack } from "@chakra-ui/react";
 import { useStateMachine } from "little-state-machine";
 import type { NextPage } from "next";
+import dynamic from "next/dynamic";
 import { AudioFeatures } from "../components/audio-features";
 import { DRCurve } from "../components/dr-curve";
-import { GetStarted } from "../components/get-started";
-import { QueryField } from "../components/query-field";
-import { SelectTrack } from "../components/select-track";
-import { TrackSelected } from "../components/track-selected";
 import { deleteTrack } from "../utilities/store";
+
+const GetStarted = dynamic(async () => {
+  const module = await import("../components/get-started");
+  return module.GetStarted;
+});
+
+const QueryField = dynamic(async () => {
+  const module = await import("../components/query-field");
+  return module.QueryField;
+});
+
+const SelectTrack = dynamic(async () => {
+  const module = await import("../components/select-track");
+  return module.SelectTrack;
+});
+
+const TrackSelected = dynamic(async () => {
+  const module = await import("../components/track-selected");
+  return module.TrackSelected;
+});
 
 const Home: NextPage = () => {
   const { state, actions } = useStateMachine({ deleteTrack });
