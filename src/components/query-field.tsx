@@ -44,7 +44,7 @@ export const QueryField: FunctionComponent = () => {
         </InputLeftElement>
         <Input
           id="search"
-          placeholder="Mamma Mia"
+          placeholder="Track Name"
           value={state.query}
           onChange={handleSearchFieldChange}
         />
