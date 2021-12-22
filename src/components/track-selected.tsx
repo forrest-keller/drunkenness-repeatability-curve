@@ -35,16 +35,20 @@ export const TrackSelected: FunctionComponent<TrackSelectedProps> = ({
   return (
     <Box width="100%" borderWidth="1px" borderRadius="md" overflow="hidden">
       <Stack direction={{ base: "column", lg: "row" }}>
-        <Image
-          src={imageUrl}
-          alt={name}
-          width={100}
-          height={100}
-          objectFit="cover"
-        />
+        <Center backgroundColor="blackAlpha.300">
+          <Image
+            src={imageUrl}
+            alt={name}
+            width={100}
+            height={100}
+            objectFit="cover"
+          />
+        </Center>
         <Stack
-          width="100%"
           as={Center}
+          width="100%"
+          padding="1em"
+          paddingY={{ lg: "0" }}
           direction={{ base: "column", lg: "row" }}
         >
           <Stack>
