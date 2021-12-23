@@ -22,9 +22,9 @@ const Home: NextPage = () => {
     <Container maxWidth="2xl">
       <Center margin="2em">
         <Stack align="center">
-          <Heading>🍻 D-R Curve</Heading>
+          <Heading>🍺 D-R Curve</Heading>
           <Text fontSize="sm" color="blackAlpha.700">
-            Scientifically engineered by&nbsp;
+            Scientifically Engineered by&nbsp;
             <Link href="https://forrestkeller.com">Forrest Keller</Link>
           </Text>
         </Stack>
