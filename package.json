@@ -15,6 +15,7 @@
     "@nivo/bar": "^0.75.0",
     "@nivo/core": "^0.75.0",
     "@nivo/line": "^0.75.0",
+    "@react-hook/debounce": "^4.0.0",
     "axios": "^0.24.0",
     "framer-motion": "^4.1.17",
     "little-state-machine": "^4.2.0",

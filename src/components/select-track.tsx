@@ -1,4 +1,11 @@
-import { Alert, Center, SlideFade, Spinner, Stack } from "@chakra-ui/react";
+import {
+  Alert,
+  Center,
+  Skeleton,
+  SlideFade,
+  Spinner,
+  Stack,
+} from "@chakra-ui/react";
 import { useStateMachine } from "little-state-machine";
 import { FunctionComponent } from "react";
 import { useTracks } from "../hooks/use-tracks";
@@ -16,9 +23,18 @@ export const SelectTrack: FunctionComponent = () => {
 
   if (isLoading) {
     return (
-      <Center>
-        <Spinner />
-      </Center>
+      <Stack>
+        <Skeleton height={50} />
+        <Skeleton height={50} />
+        <Skeleton height={50} />
+        <Skeleton height={50} />
+        <Skeleton height={50} />
+        <Skeleton height={50} />
+        <Skeleton height={50} />
+        <Skeleton height={50} />
+        <Skeleton height={50} />
+        <Skeleton height={50} />
+      </Stack>
     );
   }
 
