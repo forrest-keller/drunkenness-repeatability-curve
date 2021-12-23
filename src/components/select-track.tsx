@@ -1,6 +1,7 @@
 import {
   Alert,
   Center,
+  Fade,
   Skeleton,
   SlideFade,
   Spinner,
@@ -49,9 +50,9 @@ export const SelectTrack: FunctionComponent = () => {
   return (
     <Stack>
       {tracks.map((track, index) => (
-        <SlideFade delay={index / 30} key={track.id} in>
+        <Fade delay={index / 30} key={track.id} in>
           <TrackPreview onSelect={() => handleTrackSelect(track)} {...track} />
-        </SlideFade>
+        </Fade>
       ))}
     </Stack>
   );
