@@ -15,7 +15,7 @@ const route = async (req: NextApiRequest, res: NextApiResponse<Track[]>) => {
 
   const {
     body: { tracks: tracksPagingObject },
-  } = await spotifyApi.searchTracks(query, { limit: 5 });
+  } = await spotifyApi.searchTracks(query, { limit: 10 });
 
   const trackObjects = tracksPagingObject?.items || [];
   const tracks: Track[] = trackObjects.map((trackObject) => ({

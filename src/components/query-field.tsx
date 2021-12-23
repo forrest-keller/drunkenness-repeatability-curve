@@ -38,7 +38,7 @@ export const QueryField: FunctionComponent = () => {
 
   return (
     <FormControl>
-      <InputGroup>
+      <InputGroup size="lg">
         <InputLeftElement>
           <SearchIcon />
         </InputLeftElement>
@@ -50,8 +50,9 @@ export const QueryField: FunctionComponent = () => {
         />
         <InputRightElement width="4rem">
           <Button
+            variant="ghost"
             size="sm"
-            height="1.75rem"
+            height="2rem"
             onClick={handleSearchFieldClearClick}
           >
             Clear
