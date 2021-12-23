@@ -73,6 +73,7 @@ export const DRCurve: FunctionComponent = () => {
         <ResponsiveLine
           data={data}
           margin={{ top: 10, right: 10, bottom: 50, left: 50 }}
+          pointLabelYOffset={0}
           yScale={{
             type: "linear",
             min: 0,

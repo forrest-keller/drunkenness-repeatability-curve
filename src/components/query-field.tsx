@@ -1,8 +1,6 @@
 import { SearchIcon } from "@chakra-ui/icons";
 import {
   FormControl,
-  FormLabel,
-  Stack,
   InputGroup,
   InputLeftElement,
   Input,
@@ -14,14 +12,23 @@ import {
   ChangeEventHandler,
   FunctionComponent,
   MouseEventHandler,
+  useEffect,
+  useRef,
 } from "react";
 import { updateQuery, deleteQuery } from "../utilities/store";
 
 export const QueryField: FunctionComponent = () => {
+  const queryInputRef = useRef<HTMLInputElement>(null);
   const { state, actions } = useStateMachine({
     updateQuery,
     deleteQuery,
   });
+
+  useEffect(() => {
+    if (queryInputRef.current !== null) {
+      queryInputRef.current.focus();
+    }
+  }, []);
 
   const handleSearchFieldChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     actions.updateQuery({ query: e.target.value });
@@ -44,6 +51,7 @@ export const QueryField: FunctionComponent = () => {
         </InputLeftElement>
         <Input
           id="search"
+          ref={queryInputRef}
           placeholder="Track Name"
           value={state.query}
           onChange={handleSearchFieldChange}
