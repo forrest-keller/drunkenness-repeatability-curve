@@ -1,4 +1,11 @@
-import { Center, Container, Heading } from "@chakra-ui/react";
+import {
+  Center,
+  Container,
+  Heading,
+  Link,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 
@@ -14,7 +21,13 @@ const Home: NextPage = () => {
   return (
     <Container maxWidth="2xl">
       <Center margin="2em">
-        <Heading>🍻 D-R Curve</Heading>
+        <Stack align="center">
+          <Heading>🍻 D-R Curve</Heading>
+          <Text fontSize="sm" color="blackAlpha.700">
+            Scientifically engineered by&nbsp;
+            <Link href="https://forrestkeller.com">Forrest Keller</Link>
+          </Text>
+        </Stack>
       </Center>
       <CSRApplet />
     </Container>
