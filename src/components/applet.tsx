@@ -22,9 +22,9 @@ export const Applet: FunctionComponent = () => {
     </Fade>
   ) : state.track == undefined ? (
     <Stack>
-      <SlideFade in>
+      <Fade in>
         <QueryField />
-      </SlideFade>
+      </Fade>
       {state.query.trim().length ? (
         <SelectTrack />
       ) : (
@@ -39,9 +39,9 @@ export const Applet: FunctionComponent = () => {
     </Stack>
   ) : (
     <Stack gap="3em" hidden={state.query == undefined}>
-      <SlideFade in>
+      <Fade in>
         <TrackSelected onClose={handleTrackClose} {...state.track} />
-      </SlideFade>
+      </Fade>
       <AudioFeatures />
       <DRCurve />
     </Stack>
