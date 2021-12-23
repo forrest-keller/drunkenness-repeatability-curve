@@ -1,4 +1,12 @@
-import { Stack, NumberInput, NumberInputField, Text } from "@chakra-ui/react";
+import {
+  Stack,
+  NumberInput,
+  NumberInputField,
+  Text,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+  NumberInputStepper,
+} from "@chakra-ui/react";
 import { useStateMachine } from "little-state-machine";
 import { FunctionComponent } from "react";
 import { updateDrinkCount } from "../utilities/store";
@@ -12,27 +20,26 @@ export const DrinkCount: FunctionComponent = () => {
   const { state, actions } = useStateMachine({ updateDrinkCount });
 
   const handleChange: HandleChange = (_, drinkCount) => {
-    actions.updateDrinkCount({ drinkCount: drinkCount || 0 });
+    actions.updateDrinkCount({ drinkCount: drinkCount });
   };
 
   return (
-    <Stack alignItems="center" spacing={0}>
+    <Stack isInline alignItems="center">
       <NumberInput
         onChange={handleChange}
-        value={state.drinkCount}
-        variant="unstyled"
+        value={isNaN(state.drinkCount) ? 0 : state.drinkCount}
         size="lg"
+        min={0}
+        max={10}
       >
-        <NumberInputField
-          fontSize="3xl"
-          fontWeight="bold"
-          textAlign="center"
-          padding={0}
-          width="3em"
-        />
+        <NumberInputField width="4em" />
+        <NumberInputStepper>
+          <NumberIncrementStepper />
+          <NumberDecrementStepper />
+        </NumberInputStepper>
       </NumberInput>
-      <Text as="b" fontSize="sm" color="blackAlpha.700">
-        Drinks In
+      <Text width="4.3em" as="b" fontSize="sm" color="blackAlpha.700">
+        {state.drinkCount == 1 ? "Drink In" : "Drinks In"}
       </Text>
     </Stack>
   );

@@ -93,12 +93,16 @@ export const DRCurve: FunctionComponent = () => {
           legendOffset: -36,
         }}
         curve="cardinal"
-        markers={[
-          {
-            axis: "x",
-            value: state.drinkCount,
-          },
-        ]}
+        markers={
+          state.drinkCount !== undefined
+            ? [
+                {
+                  axis: "x",
+                  value: state.drinkCount,
+                },
+              ]
+            : []
+        }
       />
     </Center>
   );
