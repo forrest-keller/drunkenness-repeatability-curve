@@ -1,4 +1,4 @@
-import { Alert, Center, Spinner, Stack } from "@chakra-ui/react";
+import { Alert, Center, SlideFade, Spinner, Stack } from "@chakra-ui/react";
 import { useStateMachine } from "little-state-machine";
 import { FunctionComponent } from "react";
 import { useTracks } from "../hooks/use-tracks";
@@ -32,12 +32,10 @@ export const SelectTrack: FunctionComponent = () => {
 
   return (
     <Stack>
-      {tracks.map((track) => (
-        <TrackPreview
-          onSelect={() => handleTrackSelect(track)}
-          key={track.id}
-          {...track}
-        />
+      {tracks.map((track, index) => (
+        <SlideFade delay={index / 30} key={track.id} in>
+          <TrackPreview onSelect={() => handleTrackSelect(track)} {...track} />
+        </SlideFade>
       ))}
     </Stack>
   );

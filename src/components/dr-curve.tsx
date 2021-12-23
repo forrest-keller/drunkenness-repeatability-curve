@@ -1,5 +1,5 @@
-import { Alert, Box, Center, Spinner } from "@chakra-ui/react";
-import { Line, ResponsiveLine } from "@nivo/line";
+import { Alert, Center, Fade, Spinner } from "@chakra-ui/react";
+import { ResponsiveLine } from "@nivo/line";
 import { useStateMachine } from "little-state-machine";
 import { FunctionComponent } from "react";
 import { useAudioFeatures } from "../hooks/use-audio-features";
@@ -68,42 +68,44 @@ export const DRCurve: FunctionComponent = () => {
   }
 
   return (
-    <Center height={500}>
-      <ResponsiveLine
-        data={data}
-        margin={{ top: 10, right: 10, bottom: 50, left: 50 }}
-        yScale={{
-          type: "linear",
-          min: 0,
-          max: 10,
-        }}
-        xScale={{
-          type: "linear",
-          min: 0,
-          max: 10,
-        }}
-        axisBottom={{
-          legend: "Drink Count",
-          legendPosition: "middle",
-          legendOffset: 36,
-        }}
-        axisLeft={{
-          legend: "Times Repeatable",
-          legendPosition: "middle",
-          legendOffset: -36,
-        }}
-        curve="cardinal"
-        markers={
-          state.drinkCount !== undefined
-            ? [
-                {
-                  axis: "x",
-                  value: state.drinkCount,
-                },
-              ]
-            : []
-        }
-      />
-    </Center>
+    <Fade in>
+      <Center height={500}>
+        <ResponsiveLine
+          data={data}
+          margin={{ top: 10, right: 10, bottom: 50, left: 50 }}
+          yScale={{
+            type: "linear",
+            min: 0,
+            max: 10,
+          }}
+          xScale={{
+            type: "linear",
+            min: 0,
+            max: 10,
+          }}
+          axisBottom={{
+            legend: "Drink Count",
+            legendPosition: "middle",
+            legendOffset: 36,
+          }}
+          axisLeft={{
+            legend: "Times Repeatable",
+            legendPosition: "middle",
+            legendOffset: -36,
+          }}
+          curve="cardinal"
+          markers={
+            state.drinkCount !== undefined
+              ? [
+                  {
+                    axis: "x",
+                    value: state.drinkCount,
+                  },
+                ]
+              : []
+          }
+        />
+      </Center>
+    </Fade>
   );
 };

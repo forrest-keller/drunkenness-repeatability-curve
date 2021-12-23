@@ -1,4 +1,4 @@
-import { Stack } from "@chakra-ui/react";
+import { Fade, SlideFade, Stack } from "@chakra-ui/react";
 import { useStateMachine } from "little-state-machine";
 import { FunctionComponent } from "react";
 import { deleteTrack } from "../utilities/store";
@@ -25,7 +25,9 @@ export const Applet: FunctionComponent = () => {
     </Stack>
   ) : (
     <Stack gap="3em" hidden={state.query == undefined}>
-      <TrackSelected onClose={handleTrackClose} {...state.track} />
+      <SlideFade in>
+        <TrackSelected onClose={handleTrackClose} {...state.track} />
+      </SlideFade>
       <AudioFeatures />
       <DRCurve />
     </Stack>
