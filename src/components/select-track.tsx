@@ -50,9 +50,9 @@ export const SelectTrack: FunctionComponent = () => {
   return (
     <Stack>
       {tracks.map((track, index) => (
-        <Fade delay={index / 30} key={track.id} in>
+        <SlideFade offsetY={-8} delay={index / 30} key={track.id} in>
           <TrackPreview onSelect={() => handleTrackSelect(track)} {...track} />
-        </Fade>
+        </SlideFade>
       ))}
     </Stack>
   );
