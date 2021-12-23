@@ -1,4 +1,4 @@
-import { Fade, SlideFade, Stack } from "@chakra-ui/react";
+import { Center, Fade, SlideFade, Stack, Text } from "@chakra-ui/react";
 import { useStateMachine } from "little-state-machine";
 import { FunctionComponent } from "react";
 import { deleteTrack } from "../utilities/store";
@@ -21,7 +21,15 @@ export const Applet: FunctionComponent = () => {
   ) : state.track == undefined ? (
     <Stack>
       <QueryField />
-      {state.query.trim().length ? <SelectTrack /> : null}
+      {state.query.trim().length ? (
+        <SelectTrack />
+      ) : (
+        <Center paddingY="2em">
+          <Text color="blackAlpha.400" fontSize="sm">
+            Start Searching...
+          </Text>
+        </Center>
+      )}
     </Stack>
   ) : (
     <Stack gap="3em" hidden={state.query == undefined}>
