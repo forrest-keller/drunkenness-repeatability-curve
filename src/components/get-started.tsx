@@ -20,7 +20,7 @@ export const GetStarted: FunctionComponent = () => {
       <Text>{GET_STARTED_TEXT}</Text>
       <Center padding="2em">
         <Button colorScheme="blue" onClick={handleGetStartedClick}>
-          Get Started
+          Search for a Song
         </Button>
       </Center>
     </Stack>
