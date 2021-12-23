@@ -17,18 +17,24 @@ export const Applet: FunctionComponent = () => {
   };
 
   return state.query == undefined ? (
-    <GetStarted />
+    <Fade in>
+      <GetStarted />
+    </Fade>
   ) : state.track == undefined ? (
     <Stack>
-      <QueryField />
+      <SlideFade in>
+        <QueryField />
+      </SlideFade>
       {state.query.trim().length ? (
         <SelectTrack />
       ) : (
-        <Center paddingY="2em">
-          <Text color="blackAlpha.400" fontSize="sm">
-            Start Searching...
-          </Text>
-        </Center>
+        <Fade in>
+          <Center paddingY="2em">
+            <Text color="blackAlpha.400" fontSize="sm">
+              Start Searching...
+            </Text>
+          </Center>
+        </Fade>
       )}
     </Stack>
   ) : (
