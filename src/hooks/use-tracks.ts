@@ -1,13 +1,10 @@
-import { useTimeout } from "@chakra-ui/react";
 import { useDebounce } from "@react-hook/debounce";
 import axios, { AxiosError } from "axios";
-import { useStateMachine } from "little-state-machine";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 import { Track } from "../pages/api/search";
 
-export const useTracks = () => {
-  const { state } = useStateMachine({});
+export const useTracks = (query: string) => {
   const [debouncedQuery, setDebouncedQuery] = useDebounce<string | undefined>(
     undefined,
     100
@@ -22,8 +19,8 @@ export const useTracks = () => {
   );
 
   useEffect(() => {
-    setDebouncedQuery(state.query);
-  }, [state.query, setDebouncedQuery]);
+    setDebouncedQuery(query);
+  }, [query, setDebouncedQuery]);
 
   return {
     isLoading: !data && !error,

@@ -1,25 +1,20 @@
-import {
-  Alert,
-  Center,
-  Fade,
-  Skeleton,
-  SlideFade,
-  Spinner,
-  Stack,
-} from "@chakra-ui/react";
-import { useStateMachine } from "little-state-machine";
+import { Alert, Skeleton, SlideFade, Stack } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { FunctionComponent } from "react";
 import { useTracks } from "../hooks/use-tracks";
 import { Track } from "../pages/api/search";
-import { updateTrack } from "../utilities/store";
 import { TrackPreview } from "./track-preview";
 
-export const SelectTrack: FunctionComponent = () => {
-  const { actions } = useStateMachine({ updateTrack });
-  const { isLoading, error, tracks } = useTracks();
+export interface SelectTrackProps {
+  query: string;
+}
+
+export const SelectTrack: FunctionComponent<SelectTrackProps> = ({ query }) => {
+  const { isLoading, error, tracks } = useTracks(query);
+  const router = useRouter();
 
   const handleTrackSelect = (track: Track) => {
-    actions.updateTrack({ track });
+    router.push(`/tracks/${track.id}`);
   };
 
   if (isLoading) {
