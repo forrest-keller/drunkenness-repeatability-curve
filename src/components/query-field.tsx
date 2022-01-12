@@ -7,7 +7,6 @@ import {
   InputRightElement,
   Button,
 } from "@chakra-ui/react";
-import { useStateMachine } from "little-state-machine";
 import {
   ChangeEventHandler,
   FunctionComponent,
@@ -15,14 +14,17 @@ import {
   useEffect,
   useRef,
 } from "react";
-import { updateQuery, deleteQuery } from "../utilities/store";
 
-export const QueryField: FunctionComponent = () => {
+export interface QueryFieldPeops {
+  query: string;
+  setQuery: (newQuery: string) => void;
+}
+
+export const QueryField: FunctionComponent<QueryFieldPeops> = ({
+  query,
+  setQuery,
+}) => {
   const queryInputRef = useRef<HTMLInputElement>(null);
-  const { state, actions } = useStateMachine({
-    updateQuery,
-    deleteQuery,
-  });
 
   useEffect(() => {
     if (queryInputRef.current !== null) {
@@ -31,17 +33,14 @@ export const QueryField: FunctionComponent = () => {
   }, []);
 
   const handleSearchFieldChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    actions.updateQuery({ query: e.target.value });
+    setQuery(e.target.value);
   };
 
-  const handleSearchFieldClearClick: MouseEventHandler<HTMLButtonElement> =
-    () => {
-      actions.deleteQuery({});
-    };
-
-  if (state.query == undefined) {
-    return null;
-  }
+  const handleSearchFieldClearClick: MouseEventHandler<
+    HTMLButtonElement
+  > = () => {
+    setQuery("");
+  };
 
   return (
     <FormControl>
@@ -53,7 +52,7 @@ export const QueryField: FunctionComponent = () => {
           id="search"
           ref={queryInputRef}
           placeholder="Track Name"
-          value={state.query}
+          value={query}
           onChange={handleSearchFieldChange}
         />
         <InputRightElement width="4rem">
