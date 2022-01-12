@@ -1,16 +1,6 @@
-import { CloseIcon } from "@chakra-ui/icons";
-import {
-  Box,
-  Center,
-  IconButton,
-  NumberInput,
-  NumberInputField,
-  Spacer,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Center, Spacer, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import { FunctionComponent, MouseEventHandler } from "react";
+import { FunctionComponent } from "react";
 import { DrinkCount } from "./drink-count";
 
 export interface TrackSelectedProps {
@@ -18,19 +8,17 @@ export interface TrackSelectedProps {
   name: string;
   imageUrl: string;
   artists: string[];
-  onClose: () => void;
+  drinkCount: number;
+  setDrinkCount: (newDrinkCount: number) => void;
 }
 
 export const TrackSelected: FunctionComponent<TrackSelectedProps> = ({
   imageUrl,
   name,
   artists,
-  onClose,
+  drinkCount,
+  setDrinkCount,
 }) => {
-  const handleClick: MouseEventHandler<HTMLButtonElement> = () => {
-    onClose();
-  };
-
   return (
     <Box width="100%" borderWidth="1px" borderRadius="md" overflow="hidden">
       <Stack direction={{ base: "column", lg: "row" }}>
@@ -59,17 +47,7 @@ export const TrackSelected: FunctionComponent<TrackSelectedProps> = ({
             </Text>
           </Stack>
           <Spacer />
-          <Stack isInline>
-            <DrinkCount />
-            <Box padding="1em">
-              <IconButton
-                aria-label="Close"
-                variant="ghost"
-                onClick={handleClick}
-                icon={<CloseIcon />}
-              />
-            </Box>
-          </Stack>
+          <DrinkCount drinkCount={drinkCount} setDrinkCount={setDrinkCount} />
         </Stack>
       </Stack>
     </Box>
