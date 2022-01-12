@@ -1,11 +1,4 @@
-import {
-  Container,
-  Center,
-  Stack,
-  Heading,
-  Text,
-  Link,
-} from "@chakra-ui/react";
+import { Container, Center, Stack, Text, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { FunctionComponent } from "react";
 

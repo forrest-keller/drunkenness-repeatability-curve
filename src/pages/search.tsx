@@ -1,4 +1,4 @@
-import { Stack, Fade, Center, Text } from "@chakra-ui/react";
+import { Stack, Center, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { useState } from "react";
 import { Layout } from "../components/layout";

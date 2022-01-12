@@ -1,6 +1,6 @@
 import { Center, Wrap } from "@chakra-ui/react";
 import { FunctionComponent } from "react";
-import { AudioFeatures as AudioFeaturesProps } from "../pages/api/tracks/[id]";
+import { AudioFeatures as AudioFeaturesProps } from "../pages/tracks/[id]";
 import { AudioFeature } from "./audio-feature";
 
 export const AudioFeatures: FunctionComponent<AudioFeaturesProps> = ({

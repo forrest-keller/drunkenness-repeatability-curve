@@ -1,6 +1,6 @@
 import { useDebounce } from "@react-hook/debounce";
 import axios, { AxiosError } from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useSWR from "swr";
 import { Track } from "../pages/api/search";
 
