@@ -1,8 +1,10 @@
+import { Stack } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { GetStarted } from "../components/get-started";
 import { Layout } from "../components/layout";
+import { Search } from "../components/search";
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
     <Layout>
       <GetStarted />
@@ -10,4 +12,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default HomePage;

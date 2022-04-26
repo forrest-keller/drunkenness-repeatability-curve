@@ -1,20 +1,25 @@
 import { Alert, Skeleton, SlideFade, Stack } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { FunctionComponent } from "react";
+import { Dispatch, FunctionComponent, SetStateAction } from "react";
 import { useTracks } from "../hooks/use-tracks";
 import { Track } from "../pages/api/search";
 import { TrackPreview } from "./track-preview";
 
 export interface SelectTrackProps {
   query: string;
+  setQuery: Dispatch<SetStateAction<string>>;
 }
 
-export const SelectTrack: FunctionComponent<SelectTrackProps> = ({ query }) => {
+export const SelectTrack: FunctionComponent<SelectTrackProps> = ({
+  query,
+  setQuery,
+}) => {
   const { isLoading, error, tracks } = useTracks(query);
   const router = useRouter();
 
   const handleTrackSelect = (track: Track) => {
     router.push(`/tracks/${track.id}`);
+    setQuery("");
   };
 
   if (isLoading) {

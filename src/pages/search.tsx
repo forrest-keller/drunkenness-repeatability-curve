@@ -1,29 +1,13 @@
-import { Stack, Center, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
-import { useState } from "react";
 import { Layout } from "../components/layout";
-import { QueryField } from "../components/query-field";
-import { SelectTrack } from "../components/select-track";
+import { Search } from "../components/search";
 
-const Search: NextPage = () => {
-  const [query, setQuery] = useState("");
-
+const SearchPage: NextPage = () => {
   return (
     <Layout>
-      <Stack>
-        <QueryField query={query} setQuery={setQuery} />
-        {query.trim().length ? (
-          <SelectTrack query={query} />
-        ) : (
-          <Center paddingY="2em">
-            <Text color="blackAlpha.400" fontSize="sm">
-              Start Searching...
-            </Text>
-          </Center>
-        )}
-      </Stack>
+      <Search />
     </Layout>
   );
 };
 
-export default Search;
+export default SearchPage;

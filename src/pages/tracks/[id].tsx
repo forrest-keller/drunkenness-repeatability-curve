@@ -1,9 +1,13 @@
-import { Stack } from "@chakra-ui/react";
+import { Center, Stack, Text } from "@chakra-ui/react";
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import { useState } from "react";
 import { AudioFeatures } from "../../components/audio-features";
 import { DRCurve } from "../../components/dr-curve";
 import { Layout } from "../../components/layout";
+import { QueryField } from "../../components/query-field";
+import { Search } from "../../components/search";
+import { SelectTrack } from "../../components/select-track";
 import { TrackSelected } from "../../components/track-selected";
 import { authenticate, spotifyApi } from "../../utilities/spotify-api";
 import { Track } from "../api/search";
@@ -97,6 +101,7 @@ const TrackPage: NextPage<TrackMetadata> = ({
   return (
     <Layout>
       <Stack gap="2em">
+        <Search />
         <TrackSelected
           {...track}
           drinkCount={drinkCount}
