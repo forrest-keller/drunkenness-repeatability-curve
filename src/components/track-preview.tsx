@@ -3,7 +3,6 @@ import Image from "next/image";
 import { FunctionComponent, MouseEventHandler } from "react";
 
 export interface TrackPreviewProps {
-  id: string;
   name: string;
   imageUrl: string;
   artists: string[];
@@ -12,7 +11,6 @@ export interface TrackPreviewProps {
 
 export const TrackPreview: FunctionComponent<TrackPreviewProps> = ({
   imageUrl,
-  id,
   name,
   artists,
   onSelect,
